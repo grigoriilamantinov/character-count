@@ -1,11 +1,8 @@
-import java.util.Arrays;
-
 public class App {
     public static void main(String[] args) {
-        String source = "O hi dogi!";
+        String source = "G!G B!BB Z!Z !!";
         char[] arraySource = source.toCharArray();
-        System.out.println(Arrays.toString(arraySource));
-
-
+        TextStats stats = new TextStats();
+        stats.countWithArrayOnly(arraySource);
     }
 }
