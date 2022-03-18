@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 public class App {
     public static void main(String[] args) {
@@ -11,19 +10,26 @@ public class App {
         String inputText = sc.nextLine();
 
         boolean isDone = false;
-        Map<String, Map <Character, Integer>> cash = new HashMap<>();
+        Map<String, Map<Character, Integer>> cash = new HashMap<>();
 
         while (!isDone) {
             if (cash.containsKey(inputText)) {
-                System.out.println("))))" + cash.get(inputText));
+                System.out.println("Это же уже было!");
+                var map = cash.get(inputText);
+                for (Map.Entry<Character, Integer> result : map.entrySet()) {
+                    System.out.println("Символ: " + result.getKey() + " - встречается: " + result.getValue());
+                }
             } else {
-                System.out.println("Ваш результат:\n" + stats.counterCharacters(inputText));
+                var map = stats.counterCharacters(inputText);
+                System.out.println("Ваш результат:");
+                for (Map.Entry<Character, Integer> result : map.entrySet()) {
+                    System.out.println("Символ: " + result.getKey() + " - встречается: " + result.getValue());
+                }
             }
-            cash.put(inputText, stats.counterCharacters(inputText));
-            System.out.println("Если желаете закончить, напишите done: ");
-            inputText = sc.nextLine();
-            isDone = inputText.equals("done");
-
+                cash.put(inputText, stats.counterCharacters(inputText));
+                System.out.println("Если желаете закончить, напишите done: ");
+                inputText = sc.nextLine();
+                isDone = inputText.equals("done");
         }
     }
 }
