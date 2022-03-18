@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppTest {
 
     @Test
-    void shouldSumTwoDigit() {
+    void shouldCountCharAndPutTheValuesInTheMap() {
         CounterCharText counter = new CounterCharText();
         String str = "B!!";
         Map<Character, Integer> expectedResult = new HashMap<>();
