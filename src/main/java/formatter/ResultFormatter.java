@@ -1,7 +1,11 @@
+package formatter;
+
 import java.util.Map;
 import java.util.StringJoiner;
 
-public class ResultFormatter {
+public class ResultFormatter implements Formatter {
+
+    @Override
     public String formatResult (Map<Character, Integer> map) {
         StringJoiner joiner = new StringJoiner("\n");
 

@@ -1,3 +1,5 @@
+package counter;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -12,8 +14,8 @@ class CounterCharTextTest {
     void shouldCountCharAndReturnValues() {
         String str = "B!!";
         Map<Character, Integer> expectedResult = new HashMap<>();
-        expectedResult.put((char) 66, 1);
-        expectedResult.put((char) 33, 2);
+        expectedResult.put('B', 1);
+        expectedResult.put('!', 2);
         Map<Character, Integer> actualResult = counter.counterCharacters(str);
 
         assertEquals(expectedResult, actualResult);

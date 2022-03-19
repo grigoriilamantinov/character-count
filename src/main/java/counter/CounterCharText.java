@@ -1,6 +1,10 @@
+package counter;
+
 import java.util.*;
 
-public class CounterCharText {
+public class CounterCharText implements Counter {
+
+    @Override
     public Map<Character, Integer> counterCharacters(String inputText) {
         char[] inputCharacters = inputText.toCharArray();
 

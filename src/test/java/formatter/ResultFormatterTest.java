@@ -1,3 +1,5 @@
+package formatter;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -10,9 +12,8 @@ class ResultFormatterTest {
     @Test
     void formatResult() {
         ResultFormatter formatter = new ResultFormatter();
-        String str = "B";
         Map<Character, Integer> map = new HashMap<>();
-        map.put((char) 66, 1);
+        map.put('B', 1);
         String expectedResult = "Символ: B - встречается: 1";
 
         var actualResult = formatter.formatResult(map);
