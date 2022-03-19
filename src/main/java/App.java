@@ -1,23 +1,25 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        CounterCharText counter = new CounterCharText();
-        Scanner sc = new Scanner(System.in);
         System.out.print("Добро пожаловать в счётчик символов!\nВведите свою строку: ");
-        String inputText = sc.nextLine();
 
+        Scanner sc = new Scanner(System.in);
+
+        CounterCharText counter = new CounterCharText();
+        Cache cache = new Cache();
+        ResultFormatter resultFormatter = new ResultFormatter();
+
+        String inputText = sc.nextLine();
         boolean isDone = false;
         while (!isDone) {
-            ResultFormatting sout = new ResultFormatting();
-
-            if (counter.cashCheck(inputText)) {
-            System.out.println("Это же уже было!");
-            sout.printResult(counter.cashGet(inputText));
+            if (cache.contains(inputText)) {
+                System.out.println(cache.get(inputText));
             } else {
-            sout.printResult(counter.counterCharacters(inputText));
+                var countedCharacters = counter.counterCharacters(inputText);
+                String formattedResult = resultFormatter.formatResult(countedCharacters);
+                cache.put(inputText, formattedResult);
+                System.out.println(formattedResult);
             }
 
             System.out.println("Если желаете закончить, напишите done: ");
